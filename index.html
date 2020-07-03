@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>plasmanの部屋文字だけアレンジ</title>
+		<meta name="description" content=""/>
+		<meta name="keyword" content=""/>
+		<!-- 互換表示のための記述 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    
+    <!-- @importを使ってめっちゃ分割している。type mineタイプで示す。 -->
+		<!-- html文書はcommon folder内にあるので同階層のcommon以下のどこにあるかを示す -->
+		<!-- @importでうまくいかなかったので全部分けた。 -->
+		<link href="design.css" rel="stylesheet" type="text/css" />
+		<link href="default.css" rel="stylesheet" type="text/css" />
+		<link href="fonts.css" rel="stylesheet" type="text/css" />
+		<link href="jquery.lightbox-0.5.css" rel="stylesheet" type="text/css" />
+		<!-- 勝手に作成しました -->
+		<link rel="stylesheet" href="responsive.css" type="text/css">
+    
+		<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script> -->
+
+		<!-- <script type="text/javascript" src="common/js/jquery.lightbox-0.5.min.js"></script> -->
+
+		<!-- <script type="text/javascript" src="common/js/setting.js"></script> -->
+	</head>
+
+	<body>
+		<!--wrapperを一番上のborder以外と考える。逆に一番上のborderはdivにせず、borderとかんがえるんだ！  -->
+		<div id="wrapper">
+			<!-- 外枠も含めたheaderをwrapするからwrapperだ！！ -->
+			<div id="headerWrapper">
+				<!--そしてお待ちかねのheaderこれが枠のない奴ら.<header>と何が違うの？ -->
+				<div id="header">
+					<!-- ロゴ画像 ここから -->
+					<!-- h1 a img で囲む これはh1という箱に中にimg aを埋め込んでいる。a imgの順が普通。理由は何だ？ -->
+					<h1 class="siteTitle"><a href="index.html"><img src="icon-bat.png" width="100" height="100" alt="Dental Clinic" /></a></h1>
+					<!-- ロゴ画像 ここまで -->
+
+					<!-- header-rightみたいなことはしないのか。。。 -->
+					<div class="description">
+						“プラズマを世界へ” エネルギー環境
+					</div>
+					<div class="headerAddress">
+						<p class="tel">03-0000-0000</p>
+						<p class="time">平日 10:00～19:30 <span class="hot">土日 休</span></p>
+					</div>
+					<div class="navi">
+					<!-- li a そして、spanで区切るのか これはnavでもよい？むしろnavのがよい？ -->
+						<ul>
+							<li><a href="index.html" class="first"><span class="titleJa">トップページ</span><span class="titleEn">HOME</span></a></li>
+							<li><a href="clinic.html"><span class="titleJa">研究紹介</span><span class="titleEn">CLINIC</span></a></li>
+							<li><a href="service.html"><span class="titleJa">案内</span><span class="titleEn">SERVICE</span></a></li>
+							<li><a href="https://saruwakakun.com/wsss" target="_blank"><span class="titleJa">教授・スタッフ紹介</span><span class="titleEn">STAFF</span></a></li>
+							<li><a href="access.html" class="last"><span class="titleJa">アクセス</span><span class="titleEn">ACCESS</span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+<!--ここまでheader-  -->
+						
+					
+	<!-- まずはwrapしよう！！そして中身を置く癖をつけよう -->
+			<div id="contentsWrapper">
+				<div id="contents" class="clearFix">
+					<!-- 右列で1つ、左列で1つで考える -->
+					<div id="main">  
+						<div class="mainImage">
+							<img src="icon-electro.png "width="640" height="280" alt="メイン画像" />
+						</div>
+ 	
+						<div class="inner"> 
+							<!-- 見出し的な要素なのでh2を使ってあげる。h2は見出しの箱、spanが中身　中身と箱の分離。 -->
+							<h2 class="subMidashi"><span class="midashiText">新着情報</span></h2>
+<!-- dl dt（用語） dd（説明）の組み合わせリスト の使い方 なぜspanつかっているの？ 　Ans。dtを箱と考えて、spanを中身としているから。-->
+							<div class="news">
+								<dl>
+									<!-- 問題点 文字数が少ないとずれていく -->
+									<dt><span class="date">2020年04月01日</span></dt>
+									<dd>就職先決定。あああああああああああああああああああああああああああああ</dd>
+									<dt><span class="date">2020年04月20日</span></dt>
+									<dd>プログラミング学習開始（progateからスタート)あああああああああああああああああああああああ</dd>
+									<dt><span class="date">2012年05月10日</span></dt>
+									<dd>progateだいたい終了ああああああああああああああああああああああああああああ</dd>
+									<dt><span class="date">2012年05月14日</span></dt>
+									<dd>とりあえずサイト模写clinicのページ糞ムズイああああああああああああああああああ</dd>
+									<dt><span class="date">2012年05月17日</span></dt>
+									<dd>html,cssの教科書購入</dd>
+								</dl>
+							</div>
+							<!-- 新着情報 ここまで -->
+						</div>
+					</div>
+
+
+<!-- lefter ---------------------------------------------------------------------------------------------------->
+					<div id="menu">
+						<h2 class="menuTitle01">生物</h2> 	<!-- 見出しにclassをつける？？ん?　ANSそりゃそうだろ、他のh2と区別するんだ。 menititle1はborderを最外枠としているので外の箱は不要というよりブロック要素なのh2は。。 -->
+						<div class="menuList01">
+							<ul>
+								<li><a href="service.html#menu01">遺伝子</a></li>
+								<li><a href="service.html#menu02">細胞</a></li>
+								<li><a href="service.html#menu03">ネズミ</a></li>
+								<li><a href="service.html#menu04">分裂</a></li>
+							</ul>
+						</div>
+
+						<h2 class="menuTitle02">プラズマ工学</h2>
+   					<div class="menuList02">
+							<ul>
+								<li><a href="service.html#menu05">アーク放電</a></li>
+								<li><a href="service.html#menu06">グロー放電</a></li>
+								<li><a href="service.html#menu07">ぺニング効果</a></li>
+								<li><a href="service.html#menu08">デバイ遮蔽</a></li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+			</div>
+<!-- 最外枠のfoooteerwrapper内にfoote（ここに収める）を格納 -->
+			<div id="footerWrapper">
+				<div id="footer">
+					<div id="footerMenu" class="clearFix">
+						<ul>
+							<li><a href="index.html">トップページ</a></li>
+							<li><a href="clinic.html">研究紹介</a></li>
+							<li><a href="service.html">案内</a></li>
+							<li><a href="staff.html">教授・スタッフ紹介</a></li>
+							<li><a href="access.html">アクセス</a></li>
+						</ul>
+					</div>
+
+					<div class="footerAddress">
+						<strong>plasmanの部屋</strong> <span>東京都OO区OOOO町</span> <span>TEL:03-0000-XXXX</span>
+					</div>
+
+					<p class="copyright">Copyright 2020 plasman room CO.,LTD All Rights Reserved.</p>
+
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+
+
