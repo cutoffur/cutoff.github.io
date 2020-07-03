@@ -1,0 +1,731 @@
+/* CSS Document */
+/*-----------------------------------------------------------
+ フォントサイズの指定はYUI Fontsに基づき
+ 下記テーブルで指定します
+ |px|%|
+ |10|77|
+ |11|85|
+ |12|93|
+ |13|100|
+ |14|108|
+ |15|116|
+ |16|123.1|
+ |17|131|
+ |18|138.5|
+ |19|146.5|
+ |20|153.9|
+ |21|161.6|
+ |22|167|
+ |23|174|
+ |24|182|
+ |25|189|
+ |26|197|
+ ex) 12px
+ element {
+ 	font-size: 93%;
+ }
+ ------------------------------------------------------------*/
+
+ /* -webkit -moz？？？ */
+ body {
+	margin:0 auto;
+	padding:0px 0 0 ;
+	text-align:center;
+	/* rextalignはinline要素に対しての技 */
+	background:#F6F6F6;
+	color:#515151;
+	font-family:Verdana,Arial,Helvetica,'meirio','メイリオ','Hiragino Maru Gothic Pro','ヒラギノ丸ゴ Pro W4',Osaka,'ＭＳ Ｐゴシック',sans-serif;
+}
+
+a:link,a:visited {
+	color:#4D82C4;
+}
+
+a:hover,a:active {
+	color:#CC4866;
+}
+
+blockquote {
+	margin:1em 0px;
+	padding:15px;
+	border:#EFEED5 solid 3px;
+}
+
+/* hr横線のこと 　html内で<hr>といれると横線が現われる*/
+hr {
+   border-width: 2px 0px 0px 0px;
+   border:solid #6CC6C4 2px;
+}
+
+/* 画像の大きさを最適化する例の1つ。レスポンシブルデザインについて これめっちゃ好き！headerのh1要素の中にa imgを埋め込むわけなんやけど、これしないとiimgが暴れたりする。これがある事で多少はみ出ていてもh1内に埋め込んでくれる。 */
+img {
+  max-width: 100%;
+	height: auto;
+}
+
+/*外枠設定===== wrapperを一番外の箱とする。そして一番上の線を要れる。 */
+
+#wrapper {
+	margin:0;
+	padding:0;
+	border-top:solid 10px #6CC6C4;
+} 
+
+#headerWrapper {
+	/* 20pxは下への余白、これこそがheaderwrapperを入れる理由ではないようだ
+	分かりやすいから今はラップはすべきという事にしておこう 
+	margin0 autoとwidthはセット*/
+	margin:0 auto 20px;
+	width:920px;
+	text-align:left;
+}
+
+
+/* header */
+#header {
+	/* wrapper */
+	height:200px;
+	position:relative;  /*でたー！relative*/
+	/* margin:0 auto 20px;
+	width:920px;
+	text-align:left;  をheaderwrapperの代わりでも正しく表示される何が違うんだ？ */
+}
+
+.siteTitle {   /*imｇですね。*/
+	/* positonをheaderの中で駆使していくパターンね！俺はfloat:leftとかしてた！ このh1はblock要素inlinw要素はa img span  など。h1というブロックにimg と aを格納というか強制的に入る。それがブロック*/
+	position:absolute;
+	top:50px;
+	left:0px;
+	font-weight:normal;
+	margin:0;
+	padding:0;
+}
+
+.description {
+	/* position最強じゃね？ */
+	position:absolute;
+	top:10px;
+	right:0px;
+	/* 下の2ついる？ */
+	margin:0;
+	padding:0;
+	/* %ってなんだ？ */
+	font-size:77%;
+	/*  text-align:right;これいる？*/
+	text-align:right;
+}
+
+.headerAddress {
+	/* img p2つを配置するので、height,widthも決めてあげよう 何故ならそこに格納するからサイズが必要
+	 */
+	position:absolute;
+	right:0;
+	top:35px;
+	height:75px;
+	width:220px;
+}
+
+.headerAddress .tel {
+	/* backgrondで画像を設定するのか！！ */
+	background:url(icon-phone.png) left center 
+	no-repeat;
+	background-size: 40px;
+	margin:0;
+	padding:0 0 0 25px;
+	text-align:right;
+	font-size:197%;
+}
+
+.headerAddress .time {
+	border:solid 1px #D6D6D6;
+	padding:5px 0;
+	text-align:center;
+	margin:0;
+	position:absolute;
+	bottom:0;
+	width:220px;
+	font-size:77%;
+} 
+/* 俺は.spanってやってて書き込んでいたけど、あんまりようないのかなあ、やっぱりclassが基本？！ */
+.headerAddress .hot {
+	color:#B22C00;
+}
+
+.navi {
+	/* なうほでね。header内に収めてしまってabsoluteで0,0にしとけば一番左下か。floatleftだと一番上に行ってしまう。俺はこのnaviをheagerないに要れなかった。naviが一番外枠で、border内にul がある！！*/
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	border:solid 1px #6CC6C4;
+	height:70px;
+	width:919px;
+	/* 920ha???　　919＋１（border） */
+	/* この辺やばい、なんじゃこれーー */
+	/* background-color:は基本一番親の要素につけるべきかもな？ */
+	background-image:-moz-linear-gradient(50% -1%,rgb(156,227,225) 0%,rgb(108,198,196) 100%); 
+	background-image:-webkit-gradient(linear,50% -1%,50% 101%,color-stop(0, rgb(156,227,225)),color-stop(1, rgb(108,198,196)));
+	background-image:-webkit-linear-gradient(rgb(156,227,225) 0%,rgb(108,198,196) 100%);
+	background-image:-o-linear-gradient(rgb(156,227,225) 0%,rgb(108,198,196) 100%);
+	background-image:-ms-linear-gradient(rgb(156,227,225) 0%,rgb(108,198,196) 100%);
+	background-image:linear-gradient(rgb(156,227,225) 0%,rgb(108,198,196) 100%);
+	-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff9ce3e1,endColorstr=#ff6cc6c4,GradientType=0)";
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff9ce3e1,endColorstr=#ff6cc6c4,GradientType=0);
+	/* ↓  */
+	line-height:70px;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	behavior:url("border-radius.htc");
+}
+
+.navi ul {
+	list-style:none;
+	/* 下のコードで幅が最大化 ulをcssするという事に慣れろ！naviという箱に対して0,0の設定をしよう！！ naviで70px決めてまた、ul、liでも設定するのか？
+	ulをborderで囲んだ奴がnavi */
+	margin:0;
+	padding:0;
+	height:70px;
+}
+
+.navi ul li{
+	/* ulにたいしての5分割した箱1つ一つなので、0,0に設定している */
+	list-style:none;
+	margin:0;
+	padding:0;
+	float:left;
+	height:70px;
+}
+
+.navi ul li a{
+	/* これがli内の文字やな text-decoration:none;下線とか消える*/
+	text-decoration:none;
+	padding:17px 0px 18px;
+	/* widthはliでもいいねえ そして、width20%でもよくね？boxsizing borderはいるかもだけど */
+	width:182px;
+	/* a は高さなどの要素を持てないのでblockへ。iline-blockはだめ？ 既にliという箱があるので、inline(横並び)にする必要がない？*/
+	/* こいつが全ての味噌！！blockにしなければ、aは何もできない雑魚要素
+	いや、block要素にすることで、クリック範囲が増える。aはinline要素 */
+	display:block;
+	/* nazo  */
+	/* text-shadow　右 sita　ぼかしの強さ */
+	text-shadow: 5px 3px 1px #6CC6C4; /*CSS3*/
+	-moz-text-shadow: 1px 1px 2px #6CC6C4; /* Firefox用*/
+	-webkit-text-shadow: 1px 1px 2px #6CC6C4; /* Google Chrome, Safari用*/
+}
+
+/* これはかなり細かいなあ全く手付けてない */
+.navi ul li a .titleJa {
+	/* a要素（inline）なので、blockにしないと縦幅を与えられない  block要素にすることで縦並びになるというわけか。俺はbrでやった。*/
+	display:block;
+	height:20px;
+	line-height:20px;
+	text-align:center;
+	font-size:108%;
+	font-weight:bold;
+}
+.navi ul li a .titleEn {
+	display:block;
+	height:15px;
+	line-height:15px;
+	text-align:center;
+	font-size:77%;
+	font-weight:bold;
+}
+
+/* これ普通に.navi ul li aでよくね？？ この縦線のいろの出し方は左右を組み合わせて作っているのか！ height、widthなど厳密に決めているからこれがないと、枠をこえてしまい表示が下に来てしまう。*/
+.navi ul li a:link,
+.navi ul li a:visited{
+	border-right:#71C9C7 solid 1px;
+	border-left:#99E1DF solid 1px;
+}
+/* 既にnaviでborderはセットされているから、不要最端は不要かな？ */
+.navi ul li a.last:link,
+.navi ul li a.last:visited{
+	border-right: none;
+}
+ /* 下の二つは一括で良くね？ */
+.navi ul li a:link .titleJa,
+.navi ul li a:visited .titleJa{
+	color:#FFFFFF;
+}
+.navi ul li a:link .titleEn,
+.navi ul li a:visited .titleEn{
+	color:#FFFFFF;
+}
+/* 不明 */
+.navi ul li a:hover,
+.navi ul li a:active{
+	background-image:-moz-linear-gradient(50% -1%,rgb(108,198,196) 0%,rgb(156,227,225) 100%); 
+	background-image:-webkit-gradient(linear,50% -1%,50% 101%,color-stop(0, rgb(108,198,196)),color-stop(1, rgb(156,227,225)));
+	background-image:-webkit-linear-gradient(rgb(108,198,196) 0%,rgb(156,227,225) 100%);
+	background-image:-o-linear-gradient(rgb(108,198,196) 0%,rgb(156,227,225) 100%);
+	background-image:-ms-linear-gradient(rgb(108,198,196) 0%,rgb(156,227,225) 100%);
+	background-image:linear-gradient(rgb(108,198,196) 0%,rgb(156,227,225) 100%);
+	-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff6cc6c4,endColorstr=#ff9ce3e1,GradientType=0)";
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff6cc6c4,endColorstr=#ff9ce3e1,GradientType=0);
+	/* text-shadowが文字を後ろに影のやつね。 */
+	text-shadow: 1px 1px 2px #6CC6C4; /*CSS3*/
+	-moz-text-shadow: 1px 1px 2px #6CC6C4; /* Firefox用*/
+	-webkit-text-shadow: 1px 1px 2px #6CC6C4; /* Google Chrome, Safari用*/
+}
+/* sita2つborder-radiusでnaviからできんかな？border:6pxでセットしたら？; */
+.navi ul li a.first {
+	-moz-border-radius:6px 0px 0px 6px;
+	-webkit-border-radius:6px 0px 0px 6px;
+	/* naviでもradius設定必要だよ。 */
+	border-radius:6px 0px 0px 6px;
+	behavior:url("border-radius.htc");
+}
+.navi ul li a.last {
+	-moz-border-radius:0px 6px 6px 0px;
+	-webkit-border-radius:0px 6px 6px 0px;
+	border-radius:0px 6px 6px 0px;
+	behavior:url("border-radius.htc");
+}
+
+.navi ul li a:hover .titleJa,
+.navi ul li a:active .titleJa{
+	color:red;
+}
+.navi ul li a:hover .titleEn,
+.navi ul li a:active .titleEn{
+	color:red;
+}
+
+/*メインエリア設定=====================================================================*/
+/* headerと同様にcontentsをwrap 　widthの設定*/
+#contentsWrapper {
+	margin:0 auto;
+	width:920px;
+	text-align:left;
+}
+
+#contents {
+
+}
+
+/*トップページ=====================================*/
+.subMidashi {
+	height:50px;
+	padding:0;
+	margin:0 0 15px;
+	font-size:123.1%;
+	border-bottom:solid 3px #6CC6C4;
+	color:#515151 !important;
+}
+
+.subMidashi .midashiText{
+	/* よくわからんblock... */
+	display:block;
+	line-height:50px;
+	padding:0 0 0 0px;
+}
+
+.textBox {
+	padding:10px;
+}
+
+#main {
+	float:right;
+	width:640px;
+}
+
+#main .inner {
+	background:#ffffff;
+	padding:20px;
+	-moz-border-radius: 0px 0px 6px 6px;
+	-webkit-border-radius: 0px 0px 6px 6px;
+	border-radius: 0px 0px 6px 6px;
+	behavior:url("border-radius.htc");
+}
+
+
+.news dl {
+	/* .newsに対して   .上　左右　下*/
+	margin: 0 0 15px;
+	padding: 0 10px 10px;
+}
+
+.news dl dt {
+	float: left;
+	/* em  font-sizeプロパティファイルを１とする */
+	width: 11em;
+	/* 親箱はdlのうちの1つ これに対してのmargin,paddng */
+	padding: 10px 0;
+	font-weight: bold;
+	line-height: 150%;
+	margin:0;
+}
+.news dl dd {
+	margin:0;
+	/* 11emが172pxに相当していると思うpaddingでdateと距離を置く フォントサイズを1とした時の値fontsizeが16pxなので、left方向に16*11の幅を取る。*/
+	padding: 10px 10px 10px 11em;
+	/* heightの％表示 */
+	line-height: 150%;
+	border-bottom: 1px #CCCCCC dotted;
+}
+
+
+
+
+
+
+
+#menu {
+	float:left;
+	width:260px;
+}
+
+#menu .menuTitle01 {  /*h1*/
+	margin:0;
+	padding:0 15px;
+	color:#fff;
+	background-image:-moz-linear-gradient(50% -1%,rgb(156,227,225) 0%,rgb(108,198,196) 100%); 
+	background-image:-webkit-gradient(linear,50% -1%,50% 101%,color-stop(0, rgb(156,227,225)),color-stop(1, rgb(108,198,196)));
+	background-image:-webkit-linear-gradient(rgb(156,227,225) 0%,rgb(108,198,196) 100%);
+	background-image:-o-linear-gradient(rgb(156,227,225) 0%,rgb(108,198,196) 100%);
+	background-image:-ms-linear-gradient(rgb(156,227,225) 0%,rgb(108,198,196) 100%);
+	background-image:linear-gradient(rgb(156,227,225) 0%,rgb(108,198,196) 100%);
+	-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff9ce3e1,endColorstr=#ff6cc6c4,GradientType=0)";
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff9ce3e1,endColorstr=#ff6cc6c4,GradientType=0);
+	font-size:123.1%;
+	height:40px;
+	/* line-heightで枠の中心へ。*/
+	line-height:40px;
+	-moz-border-radius:6px 6px 0px 0px;
+	-webkit-border-radius:6px 6px 0px 0px;
+	border-radius:50px 50px 0px 0px;
+	behavior:url("border-radius.htc");
+	border-style:solid;
+	border-width:1px;
+	border-color:#6CC6C4;
+}
+
+#menu .menuList01  {
+	/*menu-listとul何が違うかわかるかい？ */
+	border-style:solid;
+	/* border-widthこれ強い */
+	border-width:1px;
+	border-color:#6CC6C4;
+	background-color:#ffffff;
+	list-style:none;
+	margin:0 0 20px;
+}
+
+#menu .menuList01 ul {
+	margin:0 0 20px;
+	padding:0;
+}
+
+#menu .menuList01 ul li {
+	margin:0px 12px;
+	padding:0 0 0 25px;
+	list-style:none;
+	border-bottom:#6CC6C4 solid 1px;
+	/* これどういうこと？ホームページ作った人がネットに落としたってこと？ */
+	background:url(https://haniwaman.com/sample/part3/template_08/common/images/bgListIcon01.png) no-repeat 5px center;
+}
+
+#menu .menuList01 ul li a {
+	text-decoration:none;
+	color:#595959;
+	font-size:108%;
+	padding:8px 0;
+	display:block;
+	font-weight:bold;
+}
+
+#menu .menuList01 ul li a:hover,
+#menu .menuList01 ul li a:active {
+	color:#6CC6C4;
+}
+
+/* この辺は使いまわせそうだけどなあ */
+#menu .menuTitle02 {
+	margin:0;
+	padding:0 15px;
+	color:#fff;
+	background-image:-moz-linear-gradient(50% -1%,rgb(156,227,225) 0%,rgb(108,198,196) 100%); 
+	background-image:-webkit-gradient(linear,50% -1%,50% 101%,color-stop(0, rgb(156,227,225)),color-stop(1, rgb(108,198,196)));
+	background-image:-webkit-linear-gradient(rgb(156,227,225) 0%,rgb(108,198,196) 100%);
+	background-image:-o-linear-gradient(rgb(156,227,225) 0%,rgb(108,198,196) 100%);
+	background-image:-ms-linear-gradient(rgb(156,227,225) 0%,rgb(108,198,196) 100%);
+	background-image:linear-gradient(rgb(156,227,225) 0%,rgb(108,198,196) 100%);
+	-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff9ce3e1,endColorstr=#ff6cc6c4,GradientType=0)";
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff9ce3e1,endColorstr=#ff6cc6c4,GradientType=0);
+	font-size:123.1%;
+	height:40px;
+	line-height:40px;
+	-moz-border-radius:6px 6px 0px 0px;
+	-webkit-border-radius:6px 6px 0px 0px;
+	border-radius:6px 6px 0px 0px;
+	behavior:url("border-radius.htc");
+	border-style:solid;
+	border-width:1px;
+	border-color:#6CC6C4;
+}
+#menu .menuList02  {
+	border-style:solid;
+	border-width:1px;
+	border-color:#6CC6C4;
+	background-color:#fff;
+	list-style:none;
+	margin:0 0 20px;
+}
+#menu .menuList02 ul {
+	margin:0 0 20px;
+	padding:0;
+}
+#menu .menuList02 ul li {
+	margin:0px 12px;
+	padding:0 0 0 25px;
+	list-style:none;
+	border-bottom:#6CC6C4 solid 1px;
+	background:url(https://haniwaman.com/sample/part3/template_08/common/images/bgListIcon01.png) no-repeat 5px center;
+}
+#menu .menuList02 ul li a {
+	text-decoration:none;
+	color:#595959;
+	font-size:108%;
+	padding:8px 0;
+	display:block;
+	font-weight:bold;
+}
+
+#menu .menuList02 ul li a:hover,
+#menu .menuList02 ul li a:active {
+	color:#AEC24C;
+}
+
+/*フッター設定=====================================*/
+
+#footerWrapper {
+	margin:20px 0 0;
+	text-align:center;
+	height:130px;
+}
+
+#footer {
+	width:920px;
+	text-align:left;
+	margin:0 auto;
+	padding:0;
+}
+
+#footerMenu ul {
+	margin:0;
+	padding:0 0 0 15px;
+	height:30px;
+	list-style:none;
+	background:#6CC6C4;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	behavior:url("border-radius.htc");
+}
+
+#footerMenu ul li{
+	margin:0;
+	padding:0 20px 0 25px;
+	list-style:none;
+	float:left;
+	height:30px;
+	line-height:30px;
+	/* liの中にbackgroundcolorしちゃうのすげえな */
+	background:url(https://haniwaman.com/sample/part3/template_08/common/images/bgFooterIcon.png) left center no-repeat;
+}
+
+#footerMenu ul a{
+	height:30px;
+	line-height:30px;
+	color:#FFF;
+	text-decoration:none;
+}
+
+#footerMenu ul a:hover{
+	text-decoration:underline;
+}
+
+.footerAddress {
+	text-align:right;
+	height:50px;
+	line-height:50px;
+}
+	
+#footer .copyright {
+	margin:0;
+	padding:10px 0 ;
+	text-align:center;
+	font-size:93%;
+	border-top:solid 2px #6CC6C4;
+}
+
+
+
+
+/* 共通設定================なにこれ？===================== */
+
+/*パンくずリスト*/
+.panList {
+	height:15px;
+	line-height:15px;
+	font-size:77%;
+	padding:5px;
+	margin:-10px 0 10px;
+}
+
+.panList a{
+}
+
+#main h3 {
+	color:#6CC6C4;
+}
+
+.pageTitle {
+	margin:0 0 0px;
+	padding:20px 0 20px 20px;
+	height:60px;
+	line-height:60px;
+	background-image:-moz-linear-gradient(50% -1%,rgb(156,227,225) 0%,rgb(108,198,196) 100%); 
+	background-image:-webkit-gradient(linear,50% -1%,50% 101%,color-stop(0, rgb(156,227,225)),color-stop(1, rgb(108,198,196)));
+	background-image:-webkit-linear-gradient(rgb(156,227,225) 0%,rgb(108,198,196) 100%);
+	background-image:-o-linear-gradient(rgb(156,227,225) 0%,rgb(108,198,196) 100%);
+	background-image:-ms-linear-gradient(rgb(156,227,225) 0%,rgb(108,198,196) 100%);
+	background-image:linear-gradient(rgb(156,227,225) 0%,rgb(108,198,196) 100%);
+	-ms-filter:"progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff9ce3e1,endColorstr=#ff6cc6c4,GradientType=0)";
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ff9ce3e1,endColorstr=#ff6cc6c4,GradientType=0);	line-height:70px;
+	border:solid 1px #6CC6C4;
+	color:#fff;
+	-moz-border-radius:6px 6px 0px 0px;
+	-webkit-border-radius:6px 6px 0px 0px;
+	border-radius:6px 6px 0px 0px;
+	behavior:url("border-radius.htc");
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*医院紹介ページ=====*/
+.companyTable table {
+	border-top:solid #999 1px;
+	border-left:solid #999 1px;
+	width:100%;
+	border-spacing: 0;
+	margin:0 0 20px;
+}
+
+.companyTable table th{
+	border-bottom:solid #999 1px;
+	border-right:solid #999 1px;
+	text-align:left;
+	background:#D1D1D1;
+	padding:10px;
+	text-align:center;
+}
+
+.companyTable table td{
+	border-bottom:solid #999 1px;
+	border-right:solid #999 1px;
+	padding:10px;
+	text-align:center;
+}
+
+/*スタッフ紹介ページ=====================================*/
+
+.doctorItem {
+	margin:0 0 30px;
+}
+
+.doctorItem .doctorPhoto {
+	float:left;
+	width:200px;
+}
+.doctorItem .doctorPhoto p {
+	margin:0 0 10px;
+	padding:0;
+}
+	
+.doctorItem .doctorPhoto .name {
+	text-align:center;
+	background:#6CC6C4;
+	color:#FFF;
+}
+
+.doctorItem .doctorPhoto img {
+	width:200px;
+}
+
+.doctorItem .doctorProfile {
+	width:380px;
+	float:right;
+}
+
+/*アクセスページ=====================================*/
+
+.companyMap {
+}
+
+.companyPhoto {
+	width:200px;
+	float:left;
+}
+
+.companyPhoto img {
+	width:200px;
+}
+
+.companyAddress {
+	width:380px;
+	float:right;
+}
+
+.liquid {
+  position: relative;
+  width: 100%;
+  padding-top: 58.33%; /* 高さ ÷ 横幅 × 100 */
+}
+.liquid iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}  
+
+
+
+
+
+
+
+
+
